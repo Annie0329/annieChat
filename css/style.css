@@ -6,11 +6,11 @@
     font-family: "Writes_AnnieFont";
 }
 /*html可以直接讀本機字型*/
-/* @font-face {
+@font-face {
     font-family: "Writes_AnnieFont";
     src: url('../fonts/Writes_AnnieFont.ttf') format("truetype"), 
     
-} */
+}
 
 .title {
     font-size: 80px;
