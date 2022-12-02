@@ -25,25 +25,30 @@ $(document).ready(function () {
   const $messageField = $('#messageField');
   const $nameField = $('#nameField');
   const $messageList = $('#messageList');
+  const $sendButton = $('#sendButton')
 
   // LISTEN FOR KEYPRESS EVENT
   $messageField.keypress(function (e) {
     if (e.keyCode == 13) {
-      //FIELD VALUES
-      let senderName = $nameField.val();
-      let message = $messageField.val();
-
-      //SAVE DATA TO FIREBASE
-      messagesCollectionRef.add({
-        senderName: senderName,
-        message: message,
-        timeStamp: Date.now(),
-      });
-
-      // EMPTY INPUT FIELD
-      $messageField.val('');
+      $sendButton.click();
     }
   });
+  //按傳送鈕也可以
+  $sendButton.click(function () {
+    //FIELD VALUES
+    let senderName = $nameField.val();
+    let message = $messageField.val();
+
+    //SAVE DATA TO FIREBASE
+    messagesCollectionRef.add({
+      senderName: senderName,
+      message: message,
+      timeStamp: Date.now(),
+    });
+
+    // EMPTY INPUT FIELD
+    $messageField.val('');
+  })
 
   // A RENDER SCREEN CALLBACK THAT IS TRIGGERED FOR EACH CHAT MESSAGE
   queryMessagesCollectionRef.onSnapshot(function (querySnapshot) {
@@ -59,6 +64,7 @@ $(document).ready(function () {
       </li>
       `;
       $messageList.append(messageItem);
+      $messageField
     });
     //SCROLL TO BOTTOM OF MESSAGE LIST
     $messageList[0].scrollTop = $messageList[0].scrollHeight;
