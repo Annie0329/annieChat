@@ -5,8 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>本地易安之室</title>
+    <title>火力易安聊天室</title>
 
+<!-- Firebase App is always required and must be first -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -15,12 +22,14 @@
     <script src="./js/jQuery.js"></script>
     <script src="./js/script.js"></script>
 
-    <h1 class="title">本地易安之室</h1>
+    <h1 class="title">非本地易安之室</h1>
+    <!--<a href="./fonts/Writes_AnnieFont.ttf" download>下載字體</a>-->
     <div class="card">
         <select id="nameField" class="nameField">
             <option value="Annie">易安</option>
             <option value="Tai">Tai</option>
         </select>
+        
         <div class="cardBody">
             <ul class="messageList" id="messageList"></ul>
         </div>

@@ -1,27 +1,115 @@
 $(document).ready(function () {
 
-  // 我不會JS，這是我自己看範例掰的，沒想到竟然成功
+  // INITIALIZE FIREBASE
+  firebase.initializeApp({
+    apiKey: "AIzaSyC-1xHrmDqqJYUah6b4W535SOtGoYwIyvY",
+    authDomain: "web1209-48c0a.firebaseapp.com",
+    projectId: "web1209-48c0a",
+    storageBucket: "web1209-48c0a.appspot.com",
+    messagingSenderId: "649891562731",
+    appId: "1:649891562731:web:df7980843b3c8e818deaae"
+  });
+
+  // REFERENCE CHATROOM DOCUMENT
+  let chatroomDocRef = firebase.firestore()
+    .collection("chatrooms")
+    .doc("chatroom1");
+  // REFERENCE CHATROOM MESSAGES
+  let messagesCollectionRef
+    = chatroomDocRef.collection("messages");
+  // QUERY MESSAGES BY TIMESTAMP ORDERING
+  let queryMessagesCollectionRef
+    = messagesCollectionRef.orderBy("timeStamp", "asc");
+
+  // REGISTER DOM ELEMENTS
   const $messageField = $('#messageField');
   const $nameField = $('#nameField');
   const $messageList = $('#messageList');
-  const $sendButton = $('#sendButton')
-  var nameVal = $('#nameField option:selected').text();
+  const $sendButton = $('#sendButton');
 
-  console.log(nameVal);
-  const $fontAvailable = document.fonts.check("16px A Childish Wonders");
-  if ($fontAvailable) {
-    console.log("yass");
-  }
-  //console.log($fontAvailable);
+  // LISTEN FOR KEYPRESS EVENT
+  $messageField.keypress(function (e) {
+    if (e.keyCode == 13) {
+      $sendButton.click();
+    }
+  });
+
   $('#nameField').change(
     function () {
       nameVal = $('#nameField option:selected').val();
-      console.log(nameVal);
       if (nameVal == "Annie") {
         $('.messageItemAnnie').css("text-align", "right");
         $('.messageItemTai').css("text-align", "left");
-        $('.messageField,.sendButton,.nameField,.title').css("font-family", "Writes_AnnieFont");
+        $('.messageField,.sendButton,.title').css("font-family", "Writes_AnnieFont");
         $('.chatUsernameTai').text("Tai：");
+        $('.chatUsernameAnnie').text("");
+        $('.messageAnnie').css("background-color", "skyblue");
+        $('.messageTai').css("background-color", "gainsboro");
+      }
+      else if (nameVal == "Tai") {
+        $('.messageItemAnnie').css("text-align", "left");
+        $('.messageItemTai').css("text-align", "right");
+        $('.messageField,.sendButton,.title').css("font-family", "writesTai");
+        $('.chatUsernameAnnie').text("易安：");
+        $('.chatUsernameTai').text("");
+        $('.messageTai').css("background-color", "skyblue");
+        $('.messageAnnie').css("background-color", "gainsboro");
+      }
+    }
+  )
+
+  //按按鈕傳訊息
+  $sendButton.click(function () {
+    //FIELD VALUES
+    let senderName = $nameField.val();
+    let message = $messageField.val();
+    if (message != "") {
+      //SAVE DATA TO FIREBASE
+      messagesCollectionRef.add({
+        senderName: senderName,
+        message: message,
+        timeStamp: Date.now(),
+      });
+
+      // EMPTY INPUT FIELD
+      $messageField.val('');
+    }
+
+  })
+
+  // A RENDER SCREEN CALLBACK THAT IS TRIGGERED FOR EACH CHAT MESSAGE
+  queryMessagesCollectionRef.onSnapshot(function (querySnapshot) {
+    $messageList.html("");
+    //MONITOR CHAT MESSAGE AND RENDER SCREEN
+    querySnapshot.forEach(function (doc) {
+      let senderName = doc.data().senderName || "anonymous";
+      let message = doc.data().message;
+
+      nameVal = $('#nameField option:selected').val();
+
+      if (senderName == "Annie") {
+        textClass = "messageItemAnnie";
+        usernameClass = "chatUsernameAnnie";
+        messageClass = "messageAnnie";
+      }
+
+      else if (senderName == "Tai") {
+        textClass = "messageItemTai";
+        usernameClass = "chatUsernameTai";
+        messageClass = "messageTai";
+        console.log(usernameClass);
+      }
+
+      let messageItem = `
+      <li class=${textClass}>
+      <p class=${messageClass}><strong class=${usernameClass}>${senderName}:</strong>
+        ${message}
+        </p></li>
+      `;
+      $messageList.append(messageItem);
+      if (nameVal == "Annie") {
+        $('.messageItemAnnie').css("text-align", "right");
+        $('.messageItemTai').css("text-align", "left");
         $('.chatUsernameAnnie').text("");
         $('.messageAnnie').css("background-color", "skyblue");
         $('.messageTai').css("background-color", "gainsboro");
@@ -29,55 +117,12 @@ $(document).ready(function () {
       if (nameVal == "Tai") {
         $('.messageItemAnnie').css("text-align", "left");
         $('.messageItemTai').css("text-align", "right");
-        $('.messageField,.sendButton,.nameField,.title').css("font-family", "writesTai");
-        $('.chatUsernameAnnie').text("易安：");
         $('.chatUsernameTai').text("");
-        $('.messageAnnie').css("background-color", "gainsboro");
         $('.messageTai').css("background-color", "skyblue");
+        $('.messageAnnie').css("background-color", "gainsboro");
       }
-    }
-  )
-
-  //按下enter就顯示訊息
-  $messageField.keypress(function (e) {
-    if (e.keyCode == 13) {
-      $sendButton.click();
-    }
-  });
-  //按傳送鈕也可以
-  $sendButton.click(function () {
-    nameVal = $('#nameField option:selected').val();
-    if (nameVal == "Annie") {
-      let messageItem = `
-      <li class="messageItemAnnie">
-      <p class="messageAnnie"><strong class="chatUsernameAnnie">${$nameField.val()}:</strong>
-      ${$messageField.val()}</p>
-      <li>
-      `
-      $messageList.append(messageItem);
-      $('.messageItemAnnie').css("text-align", "right");
-      $('.messageItemTai').css("text-align", "left");
-      $('.messageAnnie').css("background-color", "skyblue");
-      $('.chatUsernameAnnie').text("");
-      $messageField.val('')
-    }
-    else {
-      let messageItem = `
-      <li class="messageItemTai">
-      <p class="messageTai"><strong class="chatUsernameTai">${$nameField.val()}:</strong>
-      ${$messageField.val()}</p>
-      <li>
-      `
-      $messageList.append(messageItem);
-      $('.messageItemTai').css("text-align", "right");
-      $('.messageItemAnnie').css("text-align", "left");
-      $('.messageTai').css("background-color", "skyblue");
-      $('.chatUsernameTai').text("");
-      $messageField.val('')
-    }
-
-    //訊息會自動滑到底
+    });
+    //SCROLL TO BOTTOM OF MESSAGE LIST
     $messageList[0].scrollTop = $messageList[0].scrollHeight;
-  })
-
+  });
 });
