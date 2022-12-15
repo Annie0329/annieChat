@@ -7,33 +7,25 @@ $(document).ready(function () {
   const $sendButton = $('#sendButton')
   var nameVal = $('#nameField option:selected').text();
 
-  console.log(nameVal);
-  const $fontAvailable = document.fonts.check("16px A Childish Wonders");
-  if ($fontAvailable) {
-    console.log("yass");
-  }
-  //console.log($fontAvailable);
+  //如果切換使用者的話就換格式
   $('#nameField').change(
     function () {
       nameVal = $('#nameField option:selected').val();
-      console.log(nameVal);
+
+      $('.messageItemAnnieR, .messageItemAnnieL').toggleClass("messageItemAnnieR messageItemAnnieL");
+      $('.messageItemTaiL, .messageItemTaiR').toggleClass("messageItemTaiL messageItemTaiR");
+      $('.messageR,.messageL').toggleClass("messageR messageL");
+
       if (nameVal == "Annie") {
-        $('.messageItemAnnie').css("text-align", "right");
-        $('.messageItemTai').css("text-align", "left");
-        $('.messageField,.sendButton,.nameField,.title').css("font-family", "Writes_AnnieFont");
-        $('.chatUsernameTai').text("Tai：");
-        $('.chatUsernameAnnie').text("");
-        $('.messageAnnie').css("background-color", "skyblue");
-        $('.messageTai').css("background-color", "gainsboro");
+        $('.messageField,.sendButton,.nameField,.title,option').css("font-family", "Writes_AnnieFont");
+        // $('.chatUsernameTai').text("炎 ");
+        // $('.chatUsernameAnnie').text("");
+
       }
       if (nameVal == "Tai") {
-        $('.messageItemAnnie').css("text-align", "left");
-        $('.messageItemTai').css("text-align", "right");
-        $('.messageField,.sendButton,.nameField,.title').css("font-family", "writesTai");
-        $('.chatUsernameAnnie').text("易安：");
-        $('.chatUsernameTai').text("");
-        $('.messageAnnie').css("background-color", "gainsboro");
-        $('.messageTai').css("background-color", "skyblue");
+        $('.messageField,.sendButton,.nameField,.title,option').css("font-family", "writesTai");
+        // $('.chatUsernameAnnie').text("Annie ");
+        // $('.chatUsernameTai').text("");
       }
     }
   )
@@ -46,34 +38,36 @@ $(document).ready(function () {
   });
   //按傳送鈕也可以
   $sendButton.click(function () {
-    nameVal = $('#nameField option:selected').val();
-    if (nameVal == "Annie") {
-      let messageItem = `
-      <li class="messageItemAnnie">
-      <p class="messageAnnie"><strong class="chatUsernameAnnie">${$nameField.val()}:</strong>
-      ${$messageField.val()}</p>
-      <li>
-      `
-      $messageList.append(messageItem);
-      $('.messageItemAnnie').css("text-align", "right");
-      $('.messageItemTai').css("text-align", "left");
-      $('.messageAnnie').css("background-color", "skyblue");
-      $('.chatUsernameAnnie').text("");
-      $messageField.val('')
-    }
-    else {
-      let messageItem = `
-      <li class="messageItemTai">
-      <p class="messageTai"><strong class="chatUsernameTai">${$nameField.val()}:</strong>
-      ${$messageField.val()}</p>
-      <li>
-      `
-      $messageList.append(messageItem);
-      $('.messageItemTai').css("text-align", "right");
-      $('.messageItemAnnie').css("text-align", "left");
-      $('.messageTai').css("background-color", "skyblue");
-      $('.chatUsernameTai').text("");
-      $messageField.val('')
+    if ($messageField.val() != "") {
+      nameVal = $('#nameField option:selected').val();
+      nameValName = $('#nameField option:selected').text();
+      if (nameVal == "Annie") {
+        let messageItem = `
+        <li class="messageItemAnnieR" id="messageItemAnnie">
+        <div  class="messageR">
+        <p id="messageAnnie">${$messageField.val()}</p>
+        <p class="chatUsername">${nameValName}</p>
+        </div>
+        <li>
+        `
+        $messageList.append(messageItem);
+        // $('.chatUsernameAnnie').text("");
+
+        $messageField.val('');
+      }
+      else {
+        let messageItem = `
+        <li class="messageItemTaiR" id="messageItemTai">
+        <div  class="messageR">
+        <p id="messageTai">${$messageField.val()}</p>
+        <p class="chatUsername">${nameValName}</p>
+        <li>
+        `
+        $messageList.append(messageItem);
+        // $('.chatUsernameTai').text("");
+        $messageField.val('')
+      }
+
     }
 
     //訊息會自動滑到底

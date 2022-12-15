@@ -5,30 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>本地易安之室</title>
+    <title>本地之室</title>
 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
 </head>
 
 <body>
     <!-- Add jquery -->
     <script src="./js/jQuery.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
     <script src="./js/script.js"></script>
-
-    <h1 class="title">本地易安之室</h1>
-    <div class="card">
-        <select id="nameField" class="nameField">
-            <option value="Annie">易安</option>
-            <option value="Tai">Tai</option>
+    <div class="cardHeader">
+        <h1 class="title">本地之室</h1>
+        <select class="nameField" id="nameField" onfocus='this.size=2;' onblur='this.size=0;'
+            onchange='this.size=1; this.blur();'>
+            <option value="Annie" class="cusOption">易安</option>
+            <option value="Tai">炎</option>
         </select>
-        <div class="cardBody">
-            <ul class="messageList" id="messageList"></ul>
-        </div>
-        <div class="cardFooter">
-            <input class="messageField" id="messageField" type="text" placeholder="輸入訊息">
-            <button class="sendButton" id="sendButton">傳送</button>
-        </div>
     </div>
+    <div class="cardBody">
+        <ul class="messageList" id="messageList"></ul>
+    </div>
+    <div class="cardFooter">
+        <input class="messageField" id="messageField" type="text" placeholder="文字">
+        <button type="button" class="sendButton" id="sendButton"></button>
+    </div>
+
 </body>
 
 </html>
