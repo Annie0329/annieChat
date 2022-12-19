@@ -259,15 +259,13 @@ option {
 }
 
 @media (max-width: 480px) {
-  * {
-    font-size: 16px;
-  }
 
   .cardHeader,
   .cardBody,
   .cardFooter {
     padding-left: 20px;
     padding-right: 20px;
+    font-size: 24px;
   }
 
   .cardBody {
@@ -282,6 +280,12 @@ option {
     height: 25px;
     width: 50px;
   }
+
+  .nameField,
+  .cusOption {
+    font-size: 16px;
+  }
+
 
   select:focus {
     height: 47px;
