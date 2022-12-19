@@ -291,12 +291,4 @@ option {
     height: 47px;
   }
 
-  .messageField {
-    height: 30px;
-  }
-
-  .sendButton {
-    width: 40px;
-    height: 30px;
-  }
 }
