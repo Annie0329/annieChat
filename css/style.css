@@ -6,12 +6,12 @@
 }
 
 body {
-
   background-image: url("../images/background.JPG");
   background-attachment: fixed;
   background-size: cover;
 }
 
+/* scrollbar消失 */
 body::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -31,10 +31,10 @@ body::-webkit-scrollbar {
     url('../fonts/writesTai.ttf') format("truetype")
 }
 
+/* 扛棒 */
 .cardHeader {
   padding: 20px 60px 0px 60px;
   width: 100%;
-  height: 120px;
   margin: 0px;
   justify-content: space-between;
   display: flex;
@@ -50,7 +50,6 @@ body::-webkit-scrollbar {
   font-size: 72px;
   text-align: center;
   font-family: "Writes_AnnieFont";
-  padding: 10px;
   margin: 0px;
   background-image: url('../images/title.JPG');
   background-attachment: fixed;
@@ -74,27 +73,28 @@ select {
 }
 
 select:focus {
+  height: 85px;
   outline: none;
-  height: 100px;
 }
 
+/* 選項的scrollbar消失 */
 select::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
 
 option {
-  padding: 5px 0px;
+  padding-top: 5px;
   font-family: "Writes_AnnieFont";
   background-image: url('../images/background2.JPG');
   background-attachment: fixed;
   background-size: cover;
 }
 
+/* 裝訊息內容的地方 */
 .cardBody {
   padding: 20px 60px;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin: 100px 0px;
 }
 
 .messageList {
@@ -103,30 +103,30 @@ option {
   overflow: auto;
 }
 
-.messageL {
-  padding: 10px 15px;
-  margin: 0px;
-  display: inline-block;
-  word-wrap: break-word;
-  background-image: url('../images/messageL.png');
-  background-size: 100% 100%;
-
-}
-
+/* 左右邊訊息換不同的紙 */
+.messageL,
 .messageR {
   padding: 10px 15px;
   margin: 0px;
   max-width: 80%;
   display: inline-block;
   word-wrap: break-word;
-  background-image: url('../images/messageR.png');
   background-size: 100% 100%;
+}
+
+.messageL {
+  background-image: url('../images/messageL.png');
+}
+
+.messageR {
+  background-image: url('../images/messageR.png');
 }
 
 .message {
   margin: 0px;
 }
 
+/* 訊息內容換左右邊 */
 .messageItemAnnieL {
   padding: 10px;
   margin: 0px;
@@ -155,17 +155,19 @@ option {
   text-align: right;
 }
 
+/* 屬名粗體 */
 .chatUsername {
-  font-weight: bold;
   font-size: 16px;
+  font-weight: bold;
   text-align: right;
   padding: 5px 0px;
   margin: 0px;
 }
 
+/* 輸入訊息的地方 */
 .cardFooter {
-  justify-content: space-between;
   padding: 0px 60px 20px 60px;
+  justify-content: space-between;
   width: 100%;
   display: flex;
   position: fixed;
@@ -176,13 +178,13 @@ option {
 }
 
 .messageField {
+  height: 60px;
   font-family: "Writes_AnnieFont";
   background-image: url('../images/field.JPG');
   background-size: cover;
   background-attachment: fixed;
   border: none;
   width: 90%;
-  height: 60px;
   padding: 10px;
 }
 
@@ -196,12 +198,12 @@ option {
 }
 
 .sendButton {
+  width: 80px;
+  height: 60px;
   background-image: url('../images/airplane.png');
   background-size: 100% 100%;
   background-color: transparent;
   border: none;
-  width: 80px;
-  height: 60px;
 }
 
 .sendButton:hover {
@@ -212,9 +214,21 @@ option {
   outline: none;
 }
 
+/* RWD耶 */
 @media (max-width: 768px) {
   * {
     font-size: 24px;
+  }
+
+  .cardHeader,
+  .cardBody,
+  .cardFooter {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .cardBody {
+    margin: 75px 0px;
   }
 
   .title {
@@ -227,13 +241,37 @@ option {
   }
 
   select:focus {
-    height: 75px;
+    height: 70px;
+  }
+
+  .chatUsername {
+    font-size: 12px;
+  }
+
+  .messageField {
+    height: 45px;
+  }
+
+  .sendButton {
+    width: 60px;
+    height: 45px;
   }
 }
 
 @media (max-width: 480px) {
   * {
     font-size: 16px;
+  }
+
+  .cardHeader,
+  .cardBody,
+  .cardFooter {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .cardBody {
+    margin: 50px 0px;
   }
 
   .title {
@@ -246,6 +284,15 @@ option {
   }
 
   select:focus {
-    height: 50px;
+    height: 47px;
+  }
+
+  .messageField {
+    height: 30px;
+  }
+
+  .sendButton {
+    width: 40px;
+    height: 30px;
   }
 }
