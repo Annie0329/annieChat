@@ -52,7 +52,6 @@ body::-webkit-scrollbar {
   font-family: "Writes_AnnieFont";
   margin: 0px;
   background-image: url('../images/title.JPG');
-  background-attachment: fixed;
   background-size: cover;
 }
 
@@ -67,7 +66,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image: url('../images/background2.JPG');
+  background-image: url('../images/nameField.JPG');
   background-attachment: fixed;
   background-size: cover;
 }
@@ -86,7 +85,7 @@ select::-webkit-scrollbar {
 option {
   padding-top: 5px;
   font-family: "Writes_AnnieFont";
-  background-image: url('../images/background2.JPG');
+  background-image: url('../images/nameField.JPG');
   background-attachment: fixed;
   background-size: cover;
 }
@@ -182,7 +181,6 @@ option {
   font-family: "Writes_AnnieFont";
   background-image: url('../images/field.JPG');
   background-size: cover;
-  background-attachment: fixed;
   border: none;
   width: 90%;
   padding: 10px;
