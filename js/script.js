@@ -109,6 +109,6 @@ $(document).ready(function () {
       $messageList.append(messageItem);
     });
     //SCROLL TO BOTTOM OF MESSAGE LIST
-    $messageList[0].scrollTop = $messageList[0].scrollHeight;
+    $(document).scrollTop($(document).height());
   });
 });
