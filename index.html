@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文字之室</title>
+    <title>非本地之室</title>
 
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-
 </head>
 
 <body>
@@ -23,7 +29,7 @@
         <select class="nameField" id="nameField" onfocus='this.size=2;' onblur='this.size=0;'
             onchange='this.size=1; this.blur();'>
             <option value="Annie" class="cusOption">易安</option>
-            <option value="Tai" class="cusOption">炎</option>
+            <option value="Tai">炎</option>
         </select>
     </div>
     <div class="cardBody">
@@ -33,7 +39,6 @@
         <input class="messageField" id="messageField" type="text" placeholder="文字">
         <button type="button" class="sendButton" id="sendButton"></button>
     </div>
-
 </body>
 
 </html>
