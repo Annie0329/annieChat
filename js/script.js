@@ -17,9 +17,9 @@ $(document).ready(function () {
       $('.messageR,.messageL').toggleClass("messageR messageL");
 
       if (nameVal == "Annie")
-        $('.messageField,.sendButton,.nameField,.title,option').css("font-family", "Writes_AnnieFont");
+        $('.messageField,.sendButton,.nameField,option').css("font-family", "writesAnnie");
       else
-        $('.messageField,.sendButton,.nameField,.title,option').css("font-family", "writesTai");
+        $('.messageField,.sendButton,.nameField,option').css("font-family", "writesTai");
 
     }
   )

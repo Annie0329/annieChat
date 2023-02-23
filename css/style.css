@@ -18,10 +18,10 @@ body::-webkit-scrollbar {
 }
 
 @font-face {
-  font-family: 'Writes_AnnieFont';
+  font-family: 'writesAnnie';
   src:
-    url('../fonts/Writes_AnnieFont.woff') format("woff"),
-    url('../fonts/Writes_AnnieFont.ttf') format("truetype")
+    url('../fonts/writesAnnie.woff') format("woff"),
+    url('../fonts/writesAnnie.ttf') format("truetype")
 }
 
 @font-face {
@@ -29,6 +29,13 @@ body::-webkit-scrollbar {
   src:
     url('../fonts/writesTai.woff') format("woff"),
     url('../fonts/writesTai.ttf') format("truetype")
+}
+
+@font-face {
+  font-family: 'annieCalligraphy';
+  src:
+    url('../fonts/annieCalligraphy.woff') format("woff"),
+    url('../fonts/annieCalligraphy.ttf') format("truetype")
 }
 
 /* 扛棒 */
@@ -49,14 +56,14 @@ body::-webkit-scrollbar {
   width: 80%;
   font-size: 72px;
   text-align: center;
-  font-family: "Writes_AnnieFont";
+  font-family: "annieCalligraphy";
   margin: 0px;
   background-image: url('../images/title.JPG');
   background-size: cover;
 }
 
 .nameField {
-  font-family: "Writes_AnnieFont";
+  font-family: "writesAnnie";
 }
 
 select {
@@ -84,7 +91,7 @@ select::-webkit-scrollbar {
 
 option {
   padding-top: 5px;
-  font-family: "Writes_AnnieFont";
+  font-family: "writesAnnie";
   background-image: url('../images/nameField.JPG');
   background-attachment: fixed;
   background-size: cover;
@@ -129,14 +136,14 @@ option {
 .messageItemAnnieL {
   padding: 10px;
   margin: 0px;
-  font-family: "Writes_AnnieFont";
+  font-family: "writesAnnie";
   text-align: left;
 }
 
 .messageItemAnnieR {
   padding: 10px;
   margin: 0px;
-  font-family: "Writes_AnnieFont";
+  font-family: "writesAnnie";
   text-align: right;
 }
 
@@ -178,7 +185,7 @@ option {
 
 .messageField {
   height: 60px;
-  font-family: "Writes_AnnieFont";
+  font-family: "writesAnnie";
   background-image: url('../images/field.JPG');
   background-size: cover;
   border: none;
