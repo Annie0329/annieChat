@@ -20,20 +20,27 @@
     <script src="./js/script.js"></script>
 
     <div class="cardHeader">
-        <h1 class="title">Write to Me</h1>
+        <button class="infoButton" id="infoButton"></button>
+        <h1 class="title">寫訊給我 Write to Me</h1>
         <select class="nameField" id="nameField" onfocus='this.size=2;' onblur='this.size=0;'
             onchange='this.size=1; this.blur();'>
             <option value="Annie" class="cusOption">易安</option>
             <option value="Tai" class="cusOption">戴</option>
         </select>
     </div>
+    <div class="info" id="info">
+        <p><b class="infoTitle">上下文替代字清單(每字3種)</b></p>
+        <p class="infoText" id="infoText"></p>
+    </div>
     <div class="cardBody">
         <ul class="messageList" id="messageList"></ul>
+
     </div>
     <div class="cardFooter">
         <input class="messageField" id="messageField" type="text" placeholder="寫入文字">
         <button type="button" class="sendButton" id="sendButton"></button>
     </div>
+
 
 </body>
 

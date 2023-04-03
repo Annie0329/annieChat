@@ -7,8 +7,6 @@
 
 body {
   background-image: url("../images/background.JPG");
-  background-attachment: fixed;
-  background-size: cover;
 }
 
 /* scrollbar消失 */
@@ -38,6 +36,13 @@ body::-webkit-scrollbar {
     url('../fonts/annieCalligraphy.ttf') format("truetype")
 }
 
+@font-face {
+  font-family: 'testFont';
+  src:
+    url('../fonts/testFont.woff') format("woff"),
+    url('../fonts/testFont.ttf') format("truetype")
+}
+
 /* 扛棒 */
 .cardHeader {
   padding: 20px 60px 0px 60px;
@@ -46,22 +51,40 @@ body::-webkit-scrollbar {
   justify-content: space-between;
   display: flex;
   background-image: url('../images/background.JPG');
-  background-attachment: fixed;
-  background-size: cover;
   position: fixed;
   top: 0px;
 }
 
+/*資訊按鈕*/
+.infoButton {
+  width: 50px;
+  height: 50px;
+  background-image: url('../images/info.png');
+  background-size: 100% 100%;
+  background-color: transparent;
+  border: none;
+}
+
+.infoButton:hover {
+  filter: brightness(120%)
+}
+
+.infoButton:focus {
+  outline: none;
+}
+
+/*標題*/
 .title {
   width: 80%;
   font-size: 72px;
   text-align: center;
-  font-family: "annieCalligraphy";
+  padding-top: 10px;
+  font-family: "annieCalligraphy", "testFont";
   margin: 0px;
   background-image: url('../images/title.JPG');
-  background-size: cover;
 }
 
+/*切換使用者*/
 .nameField {
   font-family: "writesAnnie";
 }
@@ -74,13 +97,15 @@ select {
   -moz-appearance: none;
   appearance: none;
   background-image: url('../images/nameField.JPG');
-  background-attachment: fixed;
-  background-size: cover;
 }
 
 select:focus {
   height: 85px;
   outline: none;
+}
+
+select:hover {
+  filter: brightness(120%)
 }
 
 /* 選項的scrollbar消失 */
@@ -93,9 +118,30 @@ option {
   padding-top: 5px;
   font-family: "writesAnnie";
   background-image: url('../images/nameField.JPG');
-  background-attachment: fixed;
-  background-size: cover;
 }
+
+/*資訊內容*/
+.info {
+  position: fixed;
+  display: inline-block;
+  background-image: url('../images/messageR.png');
+  background-size: 100% 100%;
+  height: 45%;
+  width: 40%;
+  margin-left: 60px;
+  margin-top: 20px;
+  word-wrap: break-word;
+  overflow: auto;
+  padding: 10px 15px;
+  font-family: "writesAnnie";
+}
+
+.info::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+
 
 /* 裝訊息內容的地方 */
 .cardBody {
@@ -179,15 +225,13 @@ option {
   position: fixed;
   bottom: 0;
   background-image: url('../images/background.JPG');
-  background-size: cover;
-  background-attachment: fixed;
+
 }
 
 .messageField {
   height: 60px;
   font-family: "writesAnnie";
   background-image: url('../images/field.JPG');
-  background-size: cover;
   border: none;
   width: 90%;
   padding: 10px;
@@ -202,6 +246,7 @@ option {
   opacity: 0.3;
 }
 
+/*飛機按鈕*/
 .sendButton {
   width: 80px;
   height: 60px;
