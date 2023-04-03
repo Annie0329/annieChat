@@ -7,6 +7,7 @@
 
 body {
   background-image: url("../images/background.JPG");
+  background-attachment: fixed;
 }
 
 /* scrollbar消失 */
