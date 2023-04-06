@@ -119,7 +119,7 @@ select::-webkit-scrollbar {
 option {
   padding-top: 5px;
   font-family: "writesAnnie";
-  background-image: url('../images/nameFieldOpt.JPG');
+  background-image: url('../images/nameField.JPG');
   background-repeat: no-repeat;
 
 }
