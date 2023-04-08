@@ -287,12 +287,17 @@ option {
   }
 
   .title {
-    font-size: 60px;
+    font-size: 44px;
   }
 
   select {
     height: 37.5px;
     width: 75px;
+  }
+
+  .infoButton {
+    height: 37.5px;
+    width: 37.5px;
   }
 
   select:focus {
@@ -328,12 +333,21 @@ option {
   }
 
   .title {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   select {
     height: 25px;
     width: 50px;
+  }
+
+  .infoButton {
+    height: 25px;
+    width: 25px;
+  }
+
+  .info {
+    width: 75%;
   }
 
   .nameField,
