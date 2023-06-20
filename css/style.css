@@ -18,22 +18,22 @@ body::-webkit-scrollbar {
 
 @font-face {
   font-family: 'writesAnnie';
-  src: url('../fonts/writesAnnie.woff2') format("woff"),
+  src: url('../fonts/writesAnnie.woff2') format("woff2"),
 }
 
 @font-face {
   font-family: 'writesTai';
-  src: url('../fonts/writesTai.woff2') format("woff"),
+  src: url('../fonts/writesTai.woff2') format("woff2"),
 }
 
 @font-face {
   font-family: 'annieCalligraphy';
-  src: url('../fonts/annieCalligraphy.woff2') format("woff"),
+  src: url('../fonts/annieCalligraphy.woff2') format("woff2"),
 }
 
 @font-face {
   font-family: 'testFont';
-  src: url('../fonts/testFont.woff2') format("woff"),
+  src: url('../fonts/testFont.woff2') format("woff2"),
 }
 
 /* 扛棒 */
