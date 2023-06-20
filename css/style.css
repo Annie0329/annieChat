@@ -8,6 +8,7 @@
 body {
   background-image: url('../images/backgroundR.png');
   background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 /* scrollbar消失 */
@@ -223,8 +224,9 @@ option {
   display: flex;
   position: fixed;
   bottom: 0;
-  background-image: url('../images/background.JPG');
-
+  background-image: url('../images/backgroundR.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 .messageField {
