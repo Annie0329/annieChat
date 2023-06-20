@@ -45,6 +45,14 @@ $(document).ready(function () {
       $sendButton.click();
     }
   });
+  window.addEventListener('resize', () => {
+    // For the rare legacy browsers that don't support it
+    if (!window.visualViewport) {
+      return
+    }
+
+    console.log(window.visualViewport.height)
+  })
 
   //按傳送鈕也可以
   $sendButton.click(function () {
