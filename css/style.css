@@ -6,8 +6,8 @@
 }
 
 body {
-  background-image: url('../images/background.JPG');
-  background-attachment: fixed;
+  background-image: url('../images/backgroundR.png');
+  background-repeat: repeat;
 }
 
 /* scrollbar消失 */
@@ -20,28 +20,24 @@ body::-webkit-scrollbar {
   font-family: 'writesAnnie';
   src:
     url('../fonts/writesAnnie.woff') format("woff"),
-    url('../fonts/writesAnnie.ttf') format("truetype")
 }
 
 @font-face {
   font-family: 'writesTai';
   src:
     url('../fonts/writesTai.woff') format("woff"),
-    url('../fonts/writesTai.ttf') format("truetype")
 }
 
 @font-face {
   font-family: 'annieCalligraphy';
   src:
     url('../fonts/annieCalligraphy.woff') format("woff"),
-    url('../fonts/annieCalligraphy.ttf') format("truetype")
 }
 
 @font-face {
   font-family: 'testFont';
   src:
     url('../fonts/testFont.woff') format("woff"),
-    url('../fonts/testFont.ttf') format("truetype")
 }
 
 /* 扛棒 */
@@ -51,7 +47,6 @@ body::-webkit-scrollbar {
   margin: 0px;
   justify-content: space-between;
   display: flex;
-  background-image: url('../images/background.JPG');
   position: fixed;
   top: 0px;
 }
@@ -83,14 +78,11 @@ body::-webkit-scrollbar {
   padding-top: 10px;
   font-family: "annieCalligraphy", "testFont";
   margin: 0px;
-  background-image: url('../images/title.JPG');
+  background-image: url('../images/title.png');
+  background-repeat: repeat;
 }
 
 /*切換使用者*/
-.nameField {
-  font-family: "writesAnnie";
-}
-
 select {
   padding-left: 5px;
   height: 50px;
@@ -98,7 +90,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image: url('../images/nameField.JPG');
+  background-image: url('../images/nameFieldSelect.JPG');
 
 }
 
@@ -119,10 +111,8 @@ select::-webkit-scrollbar {
 
 option {
   padding-top: 5px;
-  font-family: "writesAnnie";
   background-image: url('../images/nameField.JPG');
   background-repeat: no-repeat;
-
 }
 
 /*資訊內容*/

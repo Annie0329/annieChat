@@ -12,6 +12,7 @@
     <link rel="preload" href="../fonts/writesAnnie.woff" as="font" type="font/woff" crossorigin>
     <link rel="preload" href="../fonts/annieCalligraphy.woff" as="font" type="font/woff" crossorigin>
     <link rel="preload" href="../fonts/testFont.woff" as="font" type="font/woff" crossorigin>
+
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
@@ -27,8 +28,8 @@
         <h1 class="title">寫訊給我 Write to Me</h1>
         <select class="nameField" id="nameField" onfocus='this.size=2;' onblur='this.size=0;'
             onchange='this.size=1; this.blur();'>
-            <option value="Annie" class="cusOption">易安</option>
-            <option value="Tai" class="cusOption">戴</option>
+            <option selected="selected" value="Annie" style="font-family: writesAnnie">易安</option>
+            <option value="Tai" style="font-family: writesTai">戴</option>
         </select>
     </div>
     <div class="info" id="info">
