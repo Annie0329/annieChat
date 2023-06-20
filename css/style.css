@@ -38,13 +38,6 @@ body::-webkit-scrollbar {
     url('../fonts/annieCalligraphy.ttf') format("ttf")
 }
 
-@font-face {
-  font-family: 'testFont';
-  src:
-    url('../fonts/testFont.woff2') format("woff2"),
-    url('../fonts/testFont.ttf') format("ttf")
-}
-
 /* 扛棒 */
 .cardHeader {
   padding: 20px 60px 0px 60px;
@@ -81,7 +74,7 @@ body::-webkit-scrollbar {
   font-size: 72px;
   text-align: center;
   padding-top: 10px;
-  font-family: "annieCalligraphy", "testFont";
+  font-family: "annieCalligraphy";
   margin: 0px;
   background-image: url('../images/title.png');
   background-repeat: repeat;
