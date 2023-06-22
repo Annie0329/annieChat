@@ -71,16 +71,48 @@ body::-webkit-scrollbar {
   outline: none;
 }
 
+/*資訊內容*/
+.info {
+  position: fixed;
+  display: inline-block;
+  background-image: url('../images/messageR.png');
+  background-size: 100% 100%;
+  height: 45%;
+  width: 40%;
+  margin-left: 60px;
+  margin-top: 20px;
+  word-wrap: break-word;
+  overflow: auto;
+  padding: 10px 15px;
+}
+
+.infoTitle {
+  white-space: pre-line
+}
+
+.info::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 /*標題*/
 .title {
-  width: 80%;
+  width: 65%;
+  height: 100px;
   font-size: 72px;
   text-align: center;
   padding-top: 10px;
   font-family: "annieCalligraphy";
-  margin: 0px;
   background-image: url('../images/title.png');
   background-repeat: repeat;
+}
+
+/*QR code*/
+.qrcode {
+  display: none;
+  height: 100px;
+  background-image: url('../images/messageL.png');
+  background-size: 100% 100%;
 }
 
 /*切換使用者*/
@@ -115,31 +147,6 @@ option {
   background-image: url('../images/nameField.JPG');
   background-repeat: no-repeat;
 }
-
-/*資訊內容*/
-.info {
-  position: fixed;
-  display: inline-block;
-  background-image: url('../images/messageR.png');
-  background-size: 100% 100%;
-  height: 45%;
-  width: 40%;
-  margin-left: 60px;
-  margin-top: 20px;
-  word-wrap: break-word;
-  overflow: auto;
-  padding: 10px 15px;
-}
-
-.infoTitle {
-  white-space: pre-line
-}
-
-.info::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
 
 /* 裝訊息內容的地方 */
 .cardBody {
@@ -230,7 +237,9 @@ option {
 .messageField {
   height: 60px;
   font-family: "writesAnnie";
-  background-image: url('../images/field.JPG');
+  background-image: url('../images/field.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
   border: none;
   width: 90%;
   padding: 10px;
@@ -264,9 +273,15 @@ option {
 }
 
 /* RWD耶 */
+
+/*平板*/
 @media (max-width: 768px) {
   * {
     font-size: 24px;
+  }
+
+  .show-on-desktop {
+    display: none;
   }
 
   .cardHeader,
@@ -281,7 +296,13 @@ option {
   }
 
   .title {
-    font-size: 44px;
+    width: 70%;
+    height: 75px;
+    font-size: 48px;
+  }
+
+  .qrcode {
+    height: 75px;
   }
 
   select {
@@ -312,7 +333,12 @@ option {
   }
 }
 
+/*手機*/
 @media (max-width: 480px) {
+
+  .show-on-desktop {
+    display: none;
+  }
 
   .cardHeader,
   .cardBody,
@@ -327,7 +353,13 @@ option {
   }
 
   .title {
+    width: 60%;
+    height: 50px;
     font-size: 32px;
+  }
+
+  .qrcode {
+    height: 50px;
   }
 
   select {
