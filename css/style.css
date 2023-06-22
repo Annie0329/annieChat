@@ -109,7 +109,7 @@ body::-webkit-scrollbar {
 
 /*QR code*/
 .qrcode {
-  display: none;
+  /*display: none;*/
   height: 100px;
   background-image: url('../images/messageL.png');
   background-size: 100% 100%;
