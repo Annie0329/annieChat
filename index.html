@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Write to me -->
 
 <head>
     <meta charset="UTF-8">
@@ -14,13 +15,6 @@
     <link rel="preload" href="./fonts/annieCalligraphy.ttf" as="font" crossorigin="anonymous" />
     <link rel="preload" href="./fonts/annieCalligraphy.woff2" as="font" crossorigin="anonymous" />
 
-    <!-- Firebase App is always required and must be first -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-
-    <!-- Add additional services that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 
@@ -49,15 +43,26 @@
         <p class="infoText" id="infoText"></p>
     </div>
     <div class="cardBody">
-        <ul class="messageList" id="messageList"></ul>
+        <ul class="messageList" id="messageList">
+            <li class="messageItemAnnieR">
+                <div class="messageR">
+                    <p class="message">歡迎來到Write to Me聊天室，現在這是本地聊天室喔！</p>
+                    <p class="chatUsername">易安</p>
+                </div>
+            <li>
+            <li class="messageItemAnnieR">
+                <div class="messageR">
+                    <p class="message">Welcome to Write to Me chatroom! This is a local chatroom now!</p>
+                    <p class="chatUsername">易安</p>
+                </div>
+            <li>
+        </ul>
     </div>
     <div class="cardFooter">
         <input class="messageField" id="messageField" type="text" placeholder="寫入文字">
         <button type="button" class="sendButton" id="sendButton"></button>
     </div>
 
-
 </body>
-
 
 </html>
